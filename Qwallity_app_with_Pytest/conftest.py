@@ -8,11 +8,18 @@ import allure
 
 @pytest.fixture()
 def test_driver():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    yield driver
-    driver.quit()
+    try:
+        # Run Chrome in headless mode
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        driver = webdriver.Chrome(options=options)
 
+    # driver = webdriver.Chrome()
+    # driver.maximize_window()
+    # yield driver
+    # driver.quit()
+    except Exception as error:
+        raise Exception(error)
 
 @pytest.fixture()
 def test_logger(request):
