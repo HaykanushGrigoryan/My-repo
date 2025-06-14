@@ -13,7 +13,8 @@ def test_driver():
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         driver = webdriver.Chrome(options=options)
-
+        yield driver
+        driver.quit()
     # driver = webdriver.Chrome()
     # driver.maximize_window()
     # yield driver
