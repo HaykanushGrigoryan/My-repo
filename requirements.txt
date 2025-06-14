@@ -1,1 +1,6 @@
-
+selenium
+faker
+pytest
+pytest-html
+pytest-azurepipelines
+allure-pytest
